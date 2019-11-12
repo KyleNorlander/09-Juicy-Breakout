@@ -1,8 +1,14 @@
 extends RigidBody2D
 
 onready var Game = get_node("/root/Game")
+onready var Camera = get_node("/root/Game/Camera")
 onready var Starting = get_node("/root/Game/Starting")
 onready var Trail = get_node("/root/Game/Trail")
+
+#Audio
+onready var Bloop = get_node("/root/Game/Bloop")
+onready var Blurp = get_node("/root/Game/Blurp")
+onready var Boing = get_node("/root/Game/Boing")
 
 var _decay_rate = 0.8
 var _max_offset = 4
@@ -17,7 +23,7 @@ var _color_decay = 1
 var _normal_color
 var _count = 0
 var _size_decay = 0.02
-var _alpha_decay = 0.01
+var _alpha_decay = 0.03
 
 
 func _ready():
@@ -51,22 +57,29 @@ func _process(delta):
 			t.color.a = 0
 			if t.rect_size.x <= 0.5 or t.color.a <=0:
 				t.queue_free()
-	
-	
-		
-		
 
 func _physics_process(delta):
 	# Check for collisions
 	var bodies = get_colliding_bodies()
 	for body in bodies:
+		Camera.add_trauma(0.2)
+		add_trauma(2.0)
 		if body.is_in_group("Tiles"):
 			Game.change_score(body.points)
+			Camera.add_trauma(0.25)
 			add_color(1.0)
 			body.find_node("Particles").emitting = true
+			Bloop.playing = true
 			body.kill()
-		add_trauma(2.0)
-	
+		if body.name == "Paddle":
+			Boing.playing = true
+			var tile_rows = get_tree().get_nodes_in_group("Tile Row")
+			for tile in tile_rows:
+				tile.add_trauma(0.5)
+		if body.name == "Wall":
+			Blurp.playing = true
+		
+		
 	if position.y > get_viewport().size.y:
 		Game.change_lives(-1)
 		Starting.startCountdown(3)

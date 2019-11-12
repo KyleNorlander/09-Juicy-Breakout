@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Bloop.wav-8218a8d0e9310db73496dfb76d11e131.sample"
+
+[deps]
+
+source_file="res://Assets/SFX/Bloop.wav"
+dest_files=[ "res://.import/Bloop.wav-8218a8d0e9310db73496dfb76d11e131.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
