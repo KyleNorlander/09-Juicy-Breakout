@@ -18,6 +18,7 @@ anchor_mode = 0
 current = true
 
 [node name="Paddle" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 544, 552 )
 script = ExtResource( 2 )
 __meta__ = {
@@ -236,4 +237,6 @@ script = ExtResource( 6 )
 
 [node name="Timer" type="Timer" parent="Starting"]
 wait_time = 10.0
+
+[node name="Trail" type="Node2D" parent="."]
 [connection signal="timeout" from="Starting/Timer" to="Starting" method="_on_Timer_timeout"]

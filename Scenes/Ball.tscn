@@ -23,6 +23,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+show_behind_parent = true
 margin_left = -8.0
 margin_top = -8.0
 margin_right = 8.0
