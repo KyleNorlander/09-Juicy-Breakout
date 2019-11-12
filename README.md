@@ -1,2 +1,1 @@
-# Project-Template-Godot
-A generic template for a Godot project
+I watched your tutorial video for extra juice and it was incredibly helpful!. I was able to create a nice atmosphere (credits to wallpaper.com for the background) with several juicy elements. The funny googly eyed paddle stretches and its eyes follow the ball around the entire screen, and it also gets happier the further away the ball is. Tiles break away and the screen shakes when hit. There is audio when ball hits the paddle, the wall, and the tiles. There was also music throughout the game (credits to Patrick de Arteaga). Overall it was a very challenging assignment, but very rewarding.  
